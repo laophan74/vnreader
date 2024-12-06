@@ -8,9 +8,9 @@ const NewsSection = ({ category }) => {
   const [loading, setLoading] = useState(true); // State để theo dõi trạng thái loading
 
   useEffect(() => {
-    // Gọi API từ backend
+    // Gọi API từ backend, truyền category vào URL để lấy bài viết theo category
     axios
-      .get(`https://vnreader-backend.vercel.app/api/posts`) // Đảm bảo URL chính xác
+      .get(`https://vnreader-backend.vercel.app/api/posts?category=${category}`)
       .then((response) => {
         console.log("Dữ liệu lấy được từ API:", response.data); // Log ra dữ liệu lấy được từ backend
         setNews(response.data); // Lưu dữ liệu vào state
