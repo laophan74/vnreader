@@ -8,7 +8,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/vnreader" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/post/:title" element={<Post />} />
       </Routes>
     </Router>
