@@ -1,0 +1,34 @@
+.Home {
+    padding-top: 60px;
+  }
+  
+  .top-bar {
+    text-align: center;
+    background-color: #1691db;
+    padding: 10px;
+    color: white;
+    font-size: 24px;
+  }
+  
+  .news-section {
+    margin-left: 15%;
+    margin-right: 20%;
+    border-bottom: 2px solid #e0e1e2;
+  }
+  
+  .news-container {
+    display: flex;
+  }
+  
+  .large-news {
+    flex: 2;
+    padding-right: 20px;
+  }
+  
+  .small-news {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+  }
+  

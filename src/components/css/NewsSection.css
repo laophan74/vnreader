@@ -1,0 +1,27 @@
+.news-section {
+  padding: 20px;
+  border-bottom: 2px solid #e0e1e2;
+}
+
+.news-section h2 {
+  font-size: 24px;
+  color: #202223;
+  margin-bottom: 20px;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 20px;
+}
+
+.large-news {
+  grid-row: span 3;
+}
+
+.middle-news,
+.right-news {
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  gap: 10px;
+}

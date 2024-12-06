@@ -1,0 +1,80 @@
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 25px;
+  position: fixed; /* Đảm bảo thanh topbar luôn cố định ở trên */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Đảm bảo top bar luôn ở trên các phần tử khác */
+  background-color: #ffffff; /* Đảm bảo top bar có nền màu trắng */
+  border-bottom: 2px solid #e0e1e2;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #202223;
+}
+
+nav {
+  flex: 1;
+  margin-left: 40px;
+}
+
+.categories {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category-item {
+  margin: 0 15px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #947b73;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.category-item:hover {
+  color: #1691db;
+  transform: scale(1.1);
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login {
+  background-color: #ffffff;
+  color: #1691db;
+  border: 2px solid #1691db;
+}
+
+.login:hover {
+  background-color: #1691db;
+  color: #ffffff;
+}
+
+.signup {
+  background-color: #1691db;
+  color: #ffffff;
+}
+
+.signup:hover {
+  background-color: #202223;
+  color: #ffffff;
+}
