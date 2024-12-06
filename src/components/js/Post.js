@@ -1,41 +1,42 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { useParams } from 'react-router-dom'; // Để lấy params từ URL
-// import '../css/Post.css';
+import '../css/Post.css';
 
 const Post = () => {
-  const { title } = useParams(); // Lấy title từ URL params
+  const { title } = useParams(); // Lấy tiêu đề bài viết từ URL
   const [post, setPost] = useState(null); // State để lưu bài viết
-  const [loading, setLoading] = useState(true); // Trạng thái loading
+  const [loading, setLoading] = useState(true); // State để theo dõi trạng thái loading
 
   useEffect(() => {
-    // Gọi API để lấy bài viết chi tiết
+    // Gọi API để lấy chi tiết bài viết dựa trên tiêu đề
     axios
-      .get(`https://vnreader-backend.vercel.app/api/posts/${title}`) // URL API cần có post/:title
+      .get(`https://vnreader-backend.vercel.app/api/posts/${title}`)
       .then((response) => {
-        setPost(response.data); // Lưu dữ liệu bài viết
-        setLoading(false); // Đổi trạng thái loading khi dữ liệu được tải
+        setPost(response.data); // Lưu bài viết vào state
+        setLoading(false); // Tắt trạng thái loading
       })
       .catch((error) => {
-        console.error('Lỗi khi lấy bài viết:', error);
-        setLoading(false);
+        console.error('Error:', error);
+        setLoading(false); // Tắt trạng thái loading nếu có lỗi
       });
-  }, [title]); // useEffect sẽ chạy lại khi title thay đổi
+  }, [title]);
 
   if (loading) {
-    return <div>Loading...</div>; // Hiển thị loading nếu bài viết đang được tải
+    return <div className="post-container">Loading...</div>;
   }
 
   if (!post) {
-    return <div>Bài viết không tồn tại!</div>; // Hiển thị nếu không tìm thấy bài viết
+    return <div className="post-container">Can't find the post!</div>;
   }
 
   return (
-    <div className="post">
-      <h1>{post.title}</h1>
-      {/* Không hiển thị hình ảnh ở đây */}
-      <p>{post.description}</p>
-      <div>{post.content}</div> {/* Hiển thị nội dung chi tiết */}
+    <div className="post-container">
+      <h1 className="post-title">{post.title}</h1>
+      <img className="post-thumbnail" src={post.thumbnail} alt={post.title} />
+      <p className="post-date">Date: {new Date(post.date).toLocaleDateString()}</p>
+      <p className="post-author">Author: {post.author}</p>
+      <div className="post-content">{post.content}</div>
     </div>
   );
 };

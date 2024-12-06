@@ -10,20 +10,20 @@
 
 .news-card img {
   width: 100%;
-  height: 120px;
+  height: 100px;
   object-fit: cover;
   border-radius: 5px;
 }
 
 .news-card h3 {
-  font-size: 18px;
+  font-size: 14px;
   color: #202223;
-  margin: 10px 0;
+  margin: 5px 0;
 }
 
 .news-card p {
   color: #202223;
-  font-size: 14px;
+  font-size: 10px;
 }
 
 .news-card.large img {
@@ -39,12 +39,12 @@
   font-size: 16px;
 }
 
-.news-title {
+.news-card h3 a {
   text-decoration: none;
   color: #202223;
-  font-size: 18px;
 }
 
-.news-title:hover {
+.news-card h3 a:hover {
   color: #1691db;
+  text-decoration: underline;
 }

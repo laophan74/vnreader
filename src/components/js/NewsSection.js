@@ -22,31 +22,31 @@ const NewsSection = ({ category }) => {
       });
   }, [category]); // useEffect chỉ chạy lại khi category thay đổi
 
-  if (loading) {
-    return <div>Loading...</div>; // Hiển thị khi dữ liệu đang tải
-  }
-
   return (
     <div id={category.toLowerCase()} className="news-section">
       <h2>{category}</h2>
       <div className="news-grid">
         <div className="large-news">
           {/* Hiển thị bài viết lớn đầu tiên */}
-          {news[0] && <NewsCard news={news[0]} large />}
+          {loading ? (
+            <NewsCard news={null} large /> // Hiển thị thẻ NewsCard khi loading
+          ) : (
+            news[0] && <NewsCard news={news[0]} large />
+          )}
         </div>
 
         <div className="middle-news">
           {/* Hiển thị các bài viết trung bình */}
-          {news.slice(1, 3).map((newsItem) => (
-            <NewsCard key={newsItem._id} news={newsItem} />
-          ))}
+          {loading
+            ? [1, 2].map((index) => <NewsCard key={index} news={null} />) // Hiển thị thêm NewsCard khi loading
+            : news.slice(1, 3).map((newsItem) => <NewsCard key={newsItem._id} news={newsItem} />)}
         </div>
 
         <div className="right-news">
           {/* Hiển thị các bài viết còn lại */}
-          {news.slice(3, 5).map((newsItem) => (
-            <NewsCard key={newsItem._id} news={newsItem} />
-          ))}
+          {loading
+            ? [3, 4].map((index) => <NewsCard key={index} news={null} />) // Hiển thị thêm NewsCard khi loading
+            : news.slice(3, 5).map((newsItem) => <NewsCard key={newsItem._id} news={newsItem} />)}
         </div>
       </div>
     </div>

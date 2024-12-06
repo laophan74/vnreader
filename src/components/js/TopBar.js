@@ -7,9 +7,7 @@ const TopBar = () => {
     'World',
     'Lifestyle',
     'Travel',
-    'Entertainment',
     'Technology',
-    'Finance',
     'Sport',
   ];
 

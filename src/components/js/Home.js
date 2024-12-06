@@ -9,15 +9,12 @@ const Home = () => {
     'World',
     'Lifestyle',
     'Travel',
-    'Entertainment',
     'Technology',
-    'Finance',
     'Sport',
   ];
 
   return (
     <div className="Home">
-      <TopBar />
       {categories.map((category, index) => (
         <NewsSection key={index} category={category} />
       ))}
