@@ -1,5 +1,5 @@
-.news-section {
-  padding: 20px;
+.news-section-container {
+  padding: 5px;
   border-bottom: 2px solid #e0e1e2;
 }
 
@@ -12,7 +12,7 @@
 .news-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
-  gap: 20px;
+  gap: 5px;
 }
 
 .large-news {
